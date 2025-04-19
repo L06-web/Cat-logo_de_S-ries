@@ -1,0 +1,72 @@
+<!-- 
+Projeto: Catálogo de Séries
+
+Validações aplicadas:
+- Validação de campos obrigatórios: o sistema verifica se os campos "nome da série", "temporada" e "status" estão preenchidos antes de permitir o cadastro ou atualização.
+- Prevenção de envio com campos em branco: alertas são exibidos se algum campo estiver vazio.
+- Atualização protegida: apenas é possível atualizar uma série se ela tiver sido previamente selecionada para edição.
+
+Testes realizados:
+- Teste de inserção: foram inseridas múltiplas séries com diferentes status e temporadas para garantir o correto funcionamento.
+- Teste de edição: edições foram realizadas em entradas específicas para validar o preenchimento automático dos campos e a persistência dos dados modificados.
+- Teste de exclusão: entradas foram removidas individualmente para assegurar a remoção correta.
+- Teste de navegação e experiência: o fluxo da aplicação foi testado para garantir boa usabilidade e resposta visual aos cliques nos botões.
+
+Todos os testes foram realizados manualmente, diretamente no navegador, simulando o uso real da aplicação.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Séries</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Catálogo de Séries</h1>
+        <div id="input-container">
+            
+            <input type="text" name="serie-input" id="serie-input" placeholder="Digite o nome da série">
+            
+            <input type="text" name="temporada-input" id="temporada-input" placeholder="Digite o número da temporada">
+            
+            <input type="radio" name="status" id="status-1" value="assistida">
+            <label for="status-1">Assistida</label>
+            <input type="radio" name="status" id="status-2" value="não assistida">
+            <label for="status-2">Não Assistida</label>
+            <input type="radio" name="status" id="status-3" value="Desejada">
+            <label for="status-3">Desejada</label>
+            <button id="add-btn">Adicionar</button>
+        </div>
+        <table id="series-table">
+            <thead>
+                <tr>
+                    <th>Série</th>
+                    <th>Temporada</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="series-list">
+                
+            </tbody>
+        </table>    
+        <div id="update-container" style="display: none;">
+            <h2>Atualizar Série</h2>
+            <input type="text" name="update-serie-input" id="update-serie-input">
+            <input type="text" name="update-temporada-input" id="update-temporada-input">
+            <input type="radio" name="update-status" id="update-status-1" value="assistida">
+            <label for="update-status-1">Assistida</label>
+            <input type="radio" name="update-status" id="update-status-2" value="não assistida">
+            <label for="update-status-2">Não Assistida</label>
+            <input type="radio" name="update-status" id="update-status-3" value="Desejada">
+            <label for="update-status-3">Desejada</label>
+            <button id="save-btn">Salvar</button>
+            <button id="cancel-btn">Cancelar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
